@@ -2,8 +2,9 @@ from flask import Flask
 from flask_cors import CORS
 from api.signup import register_bp
 from api.login import login_bp
-from api.course import course_bp
+from api.planner import planner_bp
 from api.profile import profile_bp
+from api.subject import subject_bp
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
@@ -13,8 +14,9 @@ CORS(app, supports_credentials=True, origins=['http://localhost:5173'])  # React
 # Register Blueprints
 app.register_blueprint(register_bp)
 app.register_blueprint(login_bp)
-app.register_blueprint(course_bp, url_prefix="/api/courses")
+app.register_blueprint(planner_bp)
 app.register_blueprint(profile_bp)
+app.register_blueprint(subject_bp)
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

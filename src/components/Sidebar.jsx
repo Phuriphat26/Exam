@@ -18,11 +18,14 @@ export default function Sidebar() {
           <Link to="/calendar" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
             Calendar
           </Link>
-          <Link to="/subject" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+          <Link to="/Subject" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
             Subject
           </Link>
           <Link to="/profile" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
             Time
+          </Link>
+          <Link to="/ExamPlanDetail" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+            ตาราง
           </Link>
 
           {/* ✅ Add New เชื่อมไปหน้า Create Exam */}

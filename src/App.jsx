@@ -11,6 +11,10 @@ import Profile from "./pages/Profile";
 // Import your PrivateRoute component
 import PrivateRoute from "./components/PrivateRoute"; // Assuming this is the path
 
+import Subject from './pages/Subject';
+import ExamPlanDetail from './pages/ExamPlanDetail';
+
+
 import './index.css';
 
 function App() {
@@ -27,6 +31,9 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/add" element={<AddNew />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/subject" element={<Subject />} />
+          <Route path="/ExamPlanDetail" element={<ExamPlanDetail />} />
+          
         </Route>
       </Routes>
     </Router> // Remove the extra </Router> from here
