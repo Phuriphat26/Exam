@@ -20,7 +20,7 @@ def register():
     users_collection.insert_one({
         'username': username,
         'email': email,
-        'password': password  # ควรเข้ารหัสจริงในโปรเจกต์จริง
+        'password': password  
     })
 
     return jsonify({'message': 'สมัครสมาชิกสำเร็จ'}), 200

@@ -23,7 +23,7 @@ def profile():
     }
     return jsonify(user_data), 200
 
-# แก้ไขข้อมูลผู้ใช้
+
 @profile_bp.route('/edit', methods=['PUT'])
 def edit_profile():
     if 'user_id' not in session:

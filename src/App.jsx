@@ -13,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute"; // Assuming this is the pa
 
 import Subject from './pages/Subject';
 import ExamPlanDetail from './pages/ExamPlanDetail';
+import Calendar from "./pages/Calendar";
 
 
 import './index.css';
@@ -33,7 +34,7 @@ function App() {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/subject" element={<Subject />} />
           <Route path="/ExamPlanDetail" element={<ExamPlanDetail />} />
-          
+          <Route path="/Calendar" element={<Calendar />} />
         </Route>
       </Routes>
     </Router> // Remove the extra </Router> from here

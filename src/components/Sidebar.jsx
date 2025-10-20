@@ -15,7 +15,7 @@ export default function Sidebar() {
           <Link to="/" className="w-full text-left px-3 py-2 rounded-lg bg-indigo-50 text-indigo-600 font-medium">
             Dashboard
           </Link>
-          <Link to="/calendar" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+          <Link to="/Calendar" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
             Calendar
           </Link>
           <Link to="/Subject" className="w-full text-left px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">

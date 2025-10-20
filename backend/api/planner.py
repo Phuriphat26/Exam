@@ -7,16 +7,8 @@ from datetime import datetime
 import os
 import math
 
-# -----------------------------------------------------------------------------
-# Weighted Scheduling Algorithm
-# -----------------------------------------------------------------------------
+
 def generate_weighted_schedule(subjects, study_slots):
-    """
-    Allocates subjects to study slots based on their priority.
-    - subjects: list of dicts, e.g., [{'name': 'Physics', 'priority': 3}, ...]
-    - study_slots: list of dicts for available study time
-    Returns: A new list of study slots with subjects assigned.
-    """
     if not subjects or not study_slots:
         return []
 
@@ -66,13 +58,12 @@ def generate_weighted_schedule(subjects, study_slots):
             available_subjects = [s for s in available_subjects if s['name'] != subject_to_schedule['name']]
             
     return final_schedule
-# -----------------------------------------------------------------------------
 
-# 1. Blueprint definition
+
 planner_bp = Blueprint("planner_bp", __name__)
 CORS(planner_bp, supports_credentials=True)
 
-# 2. Database connection
+
 client = MongoClient(os.getenv("MONGODB_URI", "mongodb://localhost:27017/"))
 db = client["mydatabase"]
 subjects_collection = db["subject"]
@@ -81,7 +72,6 @@ exam_plans_collection = db["exam_plans"]
 
 @planner_bp.route("/api/subjects/", methods=["GET"])
 def get_user_subjects():
-    """ Fetches subjects for the logged-in user. """
     if "user_id" not in session:
         return jsonify({"message": "กรุณา login ก่อน"}), 401
     
@@ -104,7 +94,6 @@ def get_user_subjects():
 
 @planner_bp.route("/api/exam-plan/", methods=["POST"])
 def add_exam_plan():
-    """ Receives, schedules, and saves a new exam plan. """
     if "user_id" not in session:
         return jsonify({"message": "กรุณา login ก่อน"}), 401
 
@@ -164,7 +153,7 @@ def add_exam_plan():
 
 @planner_bp.route("/api/exam-plans/", methods=["GET"])
 def get_exam_plans():
-    """ Get all exam plans for the logged-in user. """
+
     if "user_id" not in session:
         return jsonify({"message": "กรุณา login ก่อน"}), 401
 
@@ -184,7 +173,7 @@ def get_exam_plans():
     
 @planner_bp.route("/api/exam-plan/<plan_id>", methods=["GET"])
 def get_single_exam_plan(plan_id):
-    """ Get a single exam plan by its ID for the logged-in user. """
+
     if "user_id" not in session:
         return jsonify({"message": "กรุณา login ก่อน"}), 401
 

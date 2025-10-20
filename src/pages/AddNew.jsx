@@ -5,24 +5,20 @@ import Sidebar from "../components/Sidebar";
 export default function ExamPlannerAddNew() {
     // State for Exam Details
     const [examTitle, setExamTitle] = useState('');
-    const [examSubjects, setExamSubjects] = useState([]); // Array of {name, priority}
+    const [examSubjects, setExamSubjects] = useState([]); 
     const [examDate, setExamDate] = useState('');
 
-    // State for Subjects fetched from DB
     const [subjects, setSubjects] = useState([]);
     const [isLoadingSubjects, setIsLoadingSubjects] = useState(true);
     const [subjectError, setSubjectError] = useState('');
 
-    // State for Preparation Period
     const [prepStartDate, setPrepStartDate] = useState('');
     const [prepEndDate, setPrepEndDate] = useState('');
     const [defaultStartTime, setDefaultStartTime] = useState('09:00');
     const [defaultEndTime, setDefaultEndTime] = useState('17:00');
     
-    // This state will hold the detailed schedule for each day
     const [dailySchedule, setDailySchedule] = useState([]);
 
-    // Effect hook to fetch subjects from the database when the component mounts
     useEffect(() => {
         const fetchSubjects = async () => {
             console.log("🔄 Starting to fetch subjects...");
@@ -86,7 +82,6 @@ export default function ExamPlannerAddNew() {
         fetchSubjects();
     }, []);
 
-    // This effect generates the list of days for studying when the date range changes.
     useEffect(() => {
         if (prepStartDate && prepEndDate && new Date(prepStartDate) <= new Date(prepEndDate)) {
             const start = new Date(prepStartDate);
@@ -125,7 +120,6 @@ export default function ExamPlannerAddNew() {
         setDailySchedule(updatedSchedule);
     };
     
-    // จัดการ Checkbox - ส่งในรูปแบบ {name, priority} ตาม Backend API
     const handleSubjectChange = (e) => {
         const { value, checked } = e.target;
     
@@ -136,7 +130,7 @@ export default function ExamPlannerAddNew() {
                     ...prev,
                     {
                         name: selectedSubject.title,
-                        priority: selectedSubject.priority ?? 1, // ✔️ GETS 'priority'
+                        priority: selectedSubject.priority ?? 1, 
                     },
                 ]);
                 console.log("✅ Added subject:", {
@@ -293,7 +287,7 @@ export default function ExamPlannerAddNew() {
                                                         className="w-5 h-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
                                                     />
                                                     <span className="font-medium text-gray-800">{subject.title}</span>
-                                                    {subject.priority && ( // ✔️ DISPLAYS 'priority'
+                                                    {subject.priority && ( 
                                                         <span className="text-xs text-gray-500 ml-2">
                                                             (ระดับ: {subject.priority})
                                                         </span>
