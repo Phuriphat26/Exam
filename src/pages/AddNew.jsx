@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import Sidebar from "../components/Sidebar";
+import { useNavigate } from 'react-router-dom';
 
 export default function ExamPlannerAddNew() {
+    const navigate = useNavigate();
     // State for Exam Details
     const [examTitle, setExamTitle] = useState('');
     const [examSubjects, setExamSubjects] = useState([]); 
@@ -219,7 +221,7 @@ export default function ExamPlannerAddNew() {
             
             console.log("✅ Success:", res.data);
             alert(res.data.message || "บันทึกแผนการเตรียมสอบสำเร็จ!");
-            handleCancel();
+            navigate('/calendar');
         } catch (err) {
             console.error("❌ Submission error:", err);
             console.error("Response:", err.response?.data);
