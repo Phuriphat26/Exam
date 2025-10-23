@@ -12,8 +12,8 @@ import Profile from "./pages/Profile";
 import PrivateRoute from "./components/PrivateRoute"; // Assuming this is the path
 
 import Subject from './pages/Subject';
-import ExamPlanDetail from './pages/ExamPlanDetail';
-import Calendar from "./pages/Calendar";
+//import ExamPlanDetail from './pages/ExamPlanDetail';
+//import Calendar from "./pages/Calendar";
 
 
 import './index.css';
@@ -33,8 +33,8 @@ function App() {
           <Route path="/add" element={<AddNew />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/subject" element={<Subject />} />
-          <Route path="/ExamPlanDetail" element={<ExamPlanDetail />} />
-          <Route path="/Calendar" element={<Calendar />} />
+          
+          
         </Route>
       </Routes>
     </Router> // Remove the extra </Router> from here
@@ -42,3 +42,6 @@ function App() {
 }
 
 export default App;
+
+//<Route path="/Calendar" element={<Calendar />} />
+//<Route path="/ExamPlanDetail" element={<ExamPlanDetail />} />

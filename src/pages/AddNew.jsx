@@ -221,7 +221,7 @@ export default function ExamPlannerAddNew() {
             
             console.log("✅ Success:", res.data);
             alert(res.data.message || "บันทึกแผนการเตรียมสอบสำเร็จ!");
-            navigate('/calendar');
+            navigate('/add');
         } catch (err) {
             console.error("❌ Submission error:", err);
             console.error("Response:", err.response?.data);
