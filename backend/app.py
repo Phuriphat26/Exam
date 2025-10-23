@@ -6,7 +6,8 @@ from api.planner import planner_bp
 from api.profile import profile_bp
 from api.subject import subject_bp
 #from api.exam_plan import exam_plan_bp
-
+from flask import Flask, session, jsonify
+from flask_cors import CORS
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
@@ -22,14 +23,3 @@ app.register_blueprint(subject_bp)
 #app.register_blueprint(exam_plan_bp)
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
-from flask import Flask, session, jsonify
-from flask_cors import CORS
-
-
-
-@app.route("/check")
-def check():
-    if "user_id" in session:
-        return jsonify({"logged_in": True, "username": session.get("username")})
-    return jsonify({"logged_in": False})
-##fg
