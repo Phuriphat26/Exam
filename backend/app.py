@@ -32,5 +32,4 @@ def check():
     if "user_id" in session:
         return jsonify({"logged_in": True, "username": session.get("username")})
     return jsonify({"logged_in": False})
-
-
+##fg
